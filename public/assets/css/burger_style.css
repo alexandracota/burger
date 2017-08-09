@@ -1,0 +1,16 @@
+.container {
+	margin: 0 auto;
+	text-align: center;
+}
+
+#burger-img {
+	height: 300px;
+}
+
+h1 {
+	color: red;
+}
+
+#devour-btn {
+	color: red;
+}
