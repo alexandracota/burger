@@ -9,8 +9,17 @@
 
 h1 {
 	color: red;
+	font-family: 'Architects Daughter', cursive;
 }
 
-#devour-btn {
-	color: red;
+h2 {
+	font-family: 'Architects Daughter', cursive;
+}
+
+.devour-btn {
+	margin-top: 50px;
+}
+
+button {
+	font-family: 'Architects Daughter', cursive;
 }

@@ -1,16 +1,59 @@
 <!DOCTYPE html>
-  <h1>Burger Time</h1>
-  <ul>
-    {{#each burger}}
-      {{#unless this.devoured}}
-        <li>
-          {{this.burger_name}}
-          <form action="/{{this.id}}?_method=PUT" method="POST">
-            <input type="hidden" name="devoured" value="false">
-            <button type="submit">Devour it!</button>
-          </form>
-        </li>
-      {{/unless}}
-    {{/each}}
-  </ul>
+<html>
+<head>
+<title>Burger Time</title>
+<link rel="icon" href="../public/assets/img/burger.jpg">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="../public/assets/css/burger_style.css">
+</head>
+
+<body>
+<div class="container">
+
+  <center>
+    <img id="burger-img" src="../public/assets/img/burger.jpg">
+  </center>
+    
+  <!-- Ready to devour -->
+  <div class="row">
+    <div class="col-md-6">
+      <h2>Uneaten burgers</h2>
+        <div id="readytodevour">
+          {{#each burgers}}
+            {{#unless this.devoured}}
+            <form action="burger/eat/{{id}}" method="POST">
+              <div class="input-group">
+                <li class="form-control">{{id}}. {{burger_name}}</li>
+                <span class="input-group-btn">
+                  <button class="btn btn-success devour-button" type="submit">Devour It!</button>
+                </span>
+              </div>
+            </form>
+          {{/unless}}
+        {{/each}}
+      </div>
+    </div>
+    
+  <!-- Already devoured -->
+    <div class="col-md-6">
+      <h2>Eaten Burgers</h2>
+        <div id="alreadydevoured">
+          <!-- Dynamically insert burgers -->
+          {{#each burgers}}
+            {{#if this.devoured}}
+              <div class="input-group">
+                <li class="form-control">{{this.id}}. {{this.burger_name}}</li>
+              </div>
+            {{/if}}
+          {{/each}}
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+</body>
+
 </html>
